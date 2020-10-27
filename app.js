@@ -1,6 +1,7 @@
 const videoEl = document.querySelector('.screen')
 const fullScreen = document.querySelector('.fullscreen')
-videoEl.play();
+const playEl = document.querySelector('.play')
+const stopEl = document.querySelector('.stop')
 
 /* View in fullscreen */
 function openFullscreen() {
@@ -24,5 +25,7 @@ function openFullscreen() {
     }
 }
 
+fullScreen.addEventListener('click', openFullscreen);
 
-fullScreen.addEventListener('click', openFullscreen)
+playEl.addEventListener('click', () => videoEl.play());
+stopEl.addEventListener('click', () => console.log("clicked on stop"));
