@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/progress.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+        integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <title>Dave's Custom Video Player</title>
 </head>
+
 <body>
 
     <header id="header">
@@ -14,10 +19,20 @@
 
     <section id="video">
         <div class="video-container">
-            
+            <video src="videos/World of Warcraft- Battle for Azeroth Cinematic Trailer.mp4"></video>
+            <div class="video-controls">
+                <button class="btn play">
+                    <i class="far fa-play-circle"></i>
+                </button>
+                <button class="btn play">
+                    <i class="far fa-stop-circle"></i>
+                </button>
+                <input type="range" id="progress" class="progress" min="0" max="100" step="0.1" value="0">
+                <span class="timestamp" id="timestamp">00:00</span>
+            </div>
         </div>
     </section>
-    
     <script src="app.js"></script>
 </body>
+
 </html>
