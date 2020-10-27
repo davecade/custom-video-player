@@ -1,7 +1,6 @@
 const videoEl = document.querySelector('.screen')
-
+const fullScreen = document.querySelector('.fullscreen')
 videoEl.play();
-
 
 /* View in fullscreen */
 function openFullscreen() {
@@ -24,3 +23,6 @@ function openFullscreen() {
       document.msExitFullscreen();
     }
 }
+
+
+fullScreen.addEventListener('click', openFullscreen)
