@@ -6,6 +6,7 @@ const playIcon = document.querySelector('.play i')
 const progressEl = document.querySelector('.progress')
 const timeEl = document.querySelector('.timestamp')
 const overlayEl = document.querySelector('#screen-overlay')
+const overlayIconEl = document.querySelector("#screen-icon")
 
 
 /* View in fullscreen */
@@ -42,15 +43,22 @@ const toggleVideoStatus = () => {
   if (videoEl.paused) {
     videoEl.play()
     setValue(playEl, '<i class="fas fa-pause"></i>')
+    overlayIconEl.classList.remove('fas', 'fa-play')
+    overlayIconEl.classList.add('fas', 'fa-pause')
+    
   } else {
     videoEl.pause()
     setValue(playEl, '<i class="fas fa-play"></i>')
+    overlayIconEl.classList.remove('fas', 'fa-pause')
+    overlayIconEl.classList.add('fas', 'fa-play')
   }
 }
 
 const stopVideo = () => {
   videoEl.currentTime = 0
   videoEl.pause();
+  overlayIconEl.classList.remove('fas', 'fa-pause')
+  overlayIconEl.classList.add('fas', 'fa-play')
 
   if(playIcon.classList.contains('fas', 'fa-pause')) {
     setValue(playEl, '<i class="fas fa-play"></i>')
@@ -78,17 +86,22 @@ const stopVideo = () => {
 // }
 const enableOverlay = () => {
   overlayEl.style = "display: block";
+  overlayIconEl.style = "display: block"
 }
 
 const disableOverlay = () => {
   overlayEl.style = "display: none";
+  overlayIconEl.style = "display: none"
 }
 
 fullScreen.addEventListener('click', openFullscreen);
 playEl.addEventListener('click', toggleVideoStatus);
 stopEl.addEventListener('click', stopVideo);
 videoEl.addEventListener('click', toggleVideoStatus)
-//videoEl.addEventListener('timeupdate', updateProgress)
+overlayEl.addEventListener('click', toggleVideoStatus)
 videoEl.addEventListener("mouseover", enableOverlay)
 videoEl.addEventListener("mouseleave", disableOverlay)
+overlayEl.addEventListener("mouseover", enableOverlay)
+overlayEl.addEventListener("mouseleave", disableOverlay)
+//videoEl.addEventListener('timeupdate', updateProgress)
 
