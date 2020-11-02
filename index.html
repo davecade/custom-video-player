@@ -12,14 +12,17 @@
 </head>
 
 <body>
-
+    
     <header id="header">
         <h1>Dave's Custom Video Player</h1>
     </header>
 
     <section id="video">
         <div class="video-container">
-            <video class='screen' src="videos/World of Warcraft- Battle for Azeroth Cinematic Trailer.mp4"></video>
+            <div class="inner-container">
+                <div id="screen-overlay"></div>
+                <video class='screen' src="videos/World of Warcraft- Battle for Azeroth Cinematic Trailer.mp4"></video>
+            </div>
             <div class="video-controls">
                 <button class="btn play">
                     <i class="fas fa-play"></i>

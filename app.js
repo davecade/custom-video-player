@@ -5,6 +5,7 @@ const stopEl = document.querySelector('.stop')
 const playIcon = document.querySelector('.play i')
 const progressEl = document.querySelector('.progress')
 const timeEl = document.querySelector('.timestamp')
+const overlayEl = document.querySelector('#screen-overlay')
 
 
 /* View in fullscreen */
@@ -75,9 +76,19 @@ const stopVideo = () => {
 //   timeEl.innerHTML = `${mins}:${secs}`
 
 // }
+const enableOverlay = () => {
+  overlayEl.style = "display: block";
+}
 
+const disableOverlay = () => {
+  overlayEl.style = "display: none";
+}
 
 fullScreen.addEventListener('click', openFullscreen);
 playEl.addEventListener('click', toggleVideoStatus);
 stopEl.addEventListener('click', stopVideo);
-videoEl.addEventListener('timeupdate', updateProgress)
+videoEl.addEventListener('click', toggleVideoStatus)
+//videoEl.addEventListener('timeupdate', updateProgress)
+videoEl.addEventListener("mouseover", enableOverlay)
+videoEl.addEventListener("mouseleave", disableOverlay)
+

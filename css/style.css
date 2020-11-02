@@ -24,9 +24,27 @@ i {
     font-size: 1.8rem;
 }
 
-#video .screen {
+#screen-overlay {
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 300;
+    
+}
+
+#video .inner-container {
+    position: relative;
     width: 60%;
+}
+    
+#video .screen {
+    width: 100%;
     border-radius: 10px 10px 0 0;
+    cursor: pointer;
 }
 
 #video .video-container {
