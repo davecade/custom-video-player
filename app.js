@@ -100,7 +100,6 @@ const updateVideo = () => {
 
 const updateVolume = () => {
   videoEl.volume = volumeEl.value / 100;
-  console.log(videoEl.volume)
 }
 
 const enableOverlay = () => {
