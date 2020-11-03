@@ -8,6 +8,7 @@ const timeEl = document.querySelector('.timestamp')
 const overlayEl = document.querySelector('#screen-overlay')
 const overlayIconEl = document.querySelector("#screen-icon")
 const volumeEl = document.querySelector('#volume')
+const volumeIconEl = document.querySelector('#volume-icon')
 let isFullScreen = false;
 
 
@@ -44,13 +45,13 @@ const setValue = (element, value) => {
 
 const toggleVideoStatus = () => {
 
-  if(isFullScreen===false) {
+  if (isFullScreen === false) {
     if (videoEl.paused) {
       videoEl.play()
       setValue(playEl, '<i class="fas fa-pause"></i>')
       overlayIconEl.classList.remove('fas', 'fa-play')
       overlayIconEl.classList.add('fas', 'fa-pause')
-      
+
     } else {
       videoEl.pause()
       setValue(playEl, '<i class="fas fa-play"></i>')
@@ -66,7 +67,7 @@ const stopVideo = () => {
   overlayIconEl.classList.remove('fas', 'fa-pause')
   overlayIconEl.classList.add('fas', 'fa-play')
 
-  if(playIcon.classList.contains('fas', 'fa-pause')) {
+  if (playIcon.classList.contains('fas', 'fa-pause')) {
     setValue(playEl, '<i class="fas fa-play"></i>')
   }
 }
@@ -79,13 +80,13 @@ const updateProgress = () => {
   // -- get minutes
   let mins = Math.floor(videoEl.currentTime / 60);
   if (mins < 10) {
-      mins = `0${String(mins)}`
+    mins = `0${String(mins)}`
   }
 
   // -- get seconds
   let secs = Math.floor(videoEl.currentTime % 60);
   if (secs < 10) {
-      secs = `0${String(secs)}`
+    secs = `0${String(secs)}`
   }
 
   timeEl.innerHTML = `${mins}:${secs}`
@@ -98,7 +99,7 @@ const updateVideo = () => {
 }
 
 const updateVolume = () => {
-  videoEl.volume = volumeEl.value/100;
+  videoEl.volume = volumeEl.value / 100;
   console.log(videoEl.volume)
 }
 
@@ -111,6 +112,15 @@ const disableOverlay = () => {
   overlayEl.style = "display: none";
   overlayIconEl.style = "display: none"
 }
+
+const toggleVolumeBar = () => {
+  if (volumeEl.style.visibility === "hidden") {
+    volumeEl.style.visibility = "visible"
+  } else {
+    volumeEl.style.visibility = "hidden"
+  }
+}
+
 
 
 fullScreen.addEventListener('click', openFullscreen);
@@ -128,11 +138,15 @@ volumeEl.addEventListener('change', updateVolume)
 overlayEl.addEventListener("dblclick", openFullscreen)
 videoEl.addEventListener('dblclick', openFullscreen)
 
+volumeIconEl.addEventListener("click", toggleVolumeBar)
+volumeIconEl.addEventListener("mouseover", toggleVolumeBar)
+volumeEl.addEventListener("mouseleave", toggleVolumeBar)
+
 // -- Checks if the video is on Fullscreen on Normal screen
 document.addEventListener('fullscreenchange', () => {
   if (document.fullscreenElement) {
-      isFullScreen = true;
+    isFullScreen = true;
   } else {
-      isFullScreen = false;
+    isFullScreen = false;
   }
 });

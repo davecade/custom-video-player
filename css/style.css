@@ -33,7 +33,7 @@ i {
     right: 0;
     bottom: 0;
     z-index: 300;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.4);
     cursor: pointer;
 }
 
@@ -109,10 +109,22 @@ i {
 
 #video #volume {
     width: 5rem;
+    visibility: hidden;
     outline: none;
     cursor: pointer;
-    outline: none;
-    -moz-user-focus: none;
+}
+
+#video #volume:focus {
+    outline: none; 
+}
+
+#video #volume-icon {
+    color: #fff;
+    cursor: pointer;
+}
+
+#video #volume-icon:hover {
+    opacity: 0.9;
 }
 
 .btn {
@@ -133,12 +145,8 @@ i {
 }
 
 .btn.stop {
-    color: rgba(255, 0, 0, 0.685);
+    color: rgb(151, 27, 27);
     margin-right: 1rem;
-}
-
-input[type=range] {
-    margin: 0 1rem;
 }
 
 .timestamp {
