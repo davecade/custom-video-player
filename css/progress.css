@@ -29,7 +29,7 @@
     -webkit-appearance: none;
     margin-top: -9px;
   }
-  input[type=range]:focus::-webkit-slider-runnable-track {
+  .progress:focus::-webkit-slider-runnable-track {
     background: #367ebd;
   }
 
